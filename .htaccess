@@ -1,0 +1,24 @@
+RewriteEngine On
+
+RewriteBase /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^([^.]+)\.html$ http://%{HTTP_HOST}/$1 [R=301,L]
+RewriteRule ^O([-a-zA-Z0-9_]+)/? phone/open.php?u1=$1 [QSA,L]
+RewriteRule ^E([-a-zA-Z0-9_]+)/? mail/open.php?u1=$1 [QSA,L]
+RewriteCond %{REQUEST_URI} !(\.[^./]+)$
+RewriteCond %{REQUEST_fileNAME} !-d
+RewriteCond %{REQUEST_fileNAME} !-f
+RewriteRule (.*) /$1.html [L]
+
+# BLOCK USER AGENTS
+RewriteEngine on
+ RewriteCond %{HTTP_USER_AGENT} Viber [NC,OR]
+ RewriteCond %{HTTP_USER_AGENT} WhatsApp [NC,OR]
+ RewriteCond %{HTTP_USER_AGENT} Macintosh [NC,OR]
+ #RewriteCond %{HTTP_USER_AGENT} GoogleImageProxy [NC,OR]
+ RewriteCond %{HTTP_USER_AGENT} Blanks [NC]
+RewriteRule !^robots\.txt$ - [F]
+
+# BLOCK BLANK USER AGENTS
+#RewriteCond %{HTTP_USER_AGENT} ^-?$
+#RewriteRule ^ - [F]
