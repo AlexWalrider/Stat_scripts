@@ -13,6 +13,6 @@ Stat collector without MySQL<br>
 - все скрипты имеют максимально простую структуру и раздроблены на несколько файлов<br>
 - не используется СУБД MySQL<br>
 # Contact
-E-mail: alex@walrider.ru<br>
+E-mail: alex@awmail.biz<br>
 This project is a personal development, please respect its philosophy and don’t use it for evil purposes!<br>
 “Stat collector scripts” is under GNU GPL v3.<br>
